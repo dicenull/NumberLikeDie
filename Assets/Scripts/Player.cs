@@ -7,6 +7,9 @@ public class Player : MonoBehaviour
     [SerializeField] private Key leftKey = Key.A;
     [SerializeField] private Key rightKey = Key.D;
 
+    const float coolDownTime = 0.1f;
+    float currentTime = 0f;
+
     void Update()
     {
         var keyboard = Keyboard.current;
@@ -20,6 +23,18 @@ public class Player : MonoBehaviour
             Rotate(Vector3.up);
         }
 
+        if (keyboard[Key.Space].isPressed)
+        {
+            Shot();
+        }
+    }
+
+    void Shot()
+    {
+        if (Time.time - currentTime < coolDownTime) return;
+        currentTime = Time.time;
+        var bullet = Instantiate(Resources.Load<GameObject>("Bullet"), transform.position + transform.forward * 2, transform.rotation);
+        bullet.GetComponent<Rigidbody>().AddForce(transform.forward * 20f, ForceMode.Impulse);
     }
 
     void Rotate(Vector3 direction)
