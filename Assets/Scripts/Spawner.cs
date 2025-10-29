@@ -30,5 +30,7 @@ public class Spawner : MonoBehaviour
 
         // 中心に向かって進む
         enemy.GetComponent<Rigidbody>().AddForce((Vector3.zero - pos).normalized * enemySpeed, ForceMode.VelocityChange);
+        // 進む方向に回転
+        enemy.transform.rotation = Quaternion.LookRotation((Vector3.zero - pos).normalized);
     }
 }

@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
         currentTime = Time.time;
         var bullet = Instantiate(Resources.Load<GameObject>("Bullet"), transform.position + transform.forward * 2, transform.rotation);
         bullet.GetComponent<Rigidbody>().AddForce(transform.forward * 20f, ForceMode.Impulse);
+        Destroy(bullet, 10f);
     }
 
     void Rotate(Vector3 direction)
