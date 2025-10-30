@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.tag == "Bullet")
         {
             Destroy(gameObject, 0.05f);
+            GameData.Instance.AddScore(10);
         }
     }
 }
