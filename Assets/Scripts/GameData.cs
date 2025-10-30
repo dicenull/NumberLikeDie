@@ -1,10 +1,11 @@
+using R3;
 using UnityEngine;
 
 public class GameData : MonoBehaviour
 {
     public static GameData Instance { get; private set; }
 
-    public int Score { get; private set; } = 0;
+    public ReactiveProperty<int> Score = new(0);
 
     GameData()
     {
@@ -22,7 +23,7 @@ public class GameData : MonoBehaviour
     public void AddScore(int value)
     {
         if (value < 0) return;
-        Score += value;
+        Score.Value += value;
     }
 
 }
