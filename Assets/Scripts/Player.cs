@@ -29,6 +29,14 @@ public class Player : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            Time.timeScale = 0f; // ゲームオーバー
+        }
+    }
+
     void Shot()
     {
         if (Time.time - currentTime < coolDownTime) return;
