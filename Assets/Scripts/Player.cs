@@ -1,3 +1,4 @@
+using R3;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -33,7 +34,7 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            Time.timeScale = 0f; // ゲームオーバー
+            GameData.Instance.OnGameOver.OnNext(Unit.Default);
         }
     }
 

@@ -7,6 +7,8 @@ public class GameData : MonoBehaviour
 
     public ReactiveProperty<int> Score = new(0);
 
+    public Subject<Unit> OnGameOver = new();
+
     GameData()
     {
         if (Instance == null)
@@ -24,6 +26,11 @@ public class GameData : MonoBehaviour
     {
         if (value < 0) return;
         Score.Value += value;
+    }
+
+    public void Reset()
+    {
+        Score.Value = 0;
     }
 
 }
