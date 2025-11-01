@@ -207,6 +207,7 @@ MonoBehaviour:
   Speed: 100
   leftKey: 15
   rightKey: 18
+  shotKey: 24
 --- !u!65 &102189632
 BoxCollider:
   m_ObjectHideFlags: 0
