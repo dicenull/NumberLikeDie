@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour
         if (other.gameObject.CompareTag("Bullet"))
         {
             Destroy(gameObject, 0.05f);
-            GameData.Instance.AddScore(Power.Value);
+            GameData.Instance.AddScore(Power.Value * (Power.Value / 10));
         }
 
         if (other.gameObject.CompareTag("PowerBullet"))
