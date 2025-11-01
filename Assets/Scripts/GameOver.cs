@@ -1,5 +1,6 @@
 using UnityEngine;
 using R3;
+using unityroom.Api;
 
 public class GameOver : MonoBehaviour
 {
@@ -21,5 +22,7 @@ public class GameOver : MonoBehaviour
     {
         Time.timeScale = 0f; // ゲームオーバー
         _gameOverCanvas.SetActive(true);
+
+        UnityroomApiClient.Instance.SendScore(1, GameData.Instance.Score.Value, ScoreboardWriteMode.Always);
     }
 }
