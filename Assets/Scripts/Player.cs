@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float Speed = 20f;
     [SerializeField] private Key leftKey = Key.A;
     [SerializeField] private Key rightKey = Key.D;
+    [SerializeField] private Key shotKey = Key.J;
 
     const float coolDownTime = 0.1f;
     float currentTime = 0f;
@@ -24,7 +25,7 @@ public class Player : MonoBehaviour
             Rotate(Vector3.up);
         }
 
-        if (keyboard[Key.Space].isPressed)
+        if (keyboard[shotKey].isPressed)
         {
             Shot();
         }
