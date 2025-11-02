@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    readonly ReactiveProperty<int> Power = new(10);
+    public readonly ReactiveProperty<int> Power = new(10);
     private float mergeCoolDown = 0f;
 
     public bool CanMerge()
