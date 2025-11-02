@@ -41,8 +41,17 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            GameData.Instance.OnGameOver.OnNext(Unit.Default);
+            var enemy = other.GetComponent<Enemy>();
+            var damage = enemy.Power.Value / 10;
+            Damage(damage);
+
+            Destroy(other.gameObject);
         }
+    }
+
+    void Damage(int damage)
+    {
+        GameData.Instance.Hp.Value -= damage;
     }
 
     void PowerShot()

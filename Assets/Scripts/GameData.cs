@@ -9,6 +9,10 @@ public class GameData : MonoBehaviour
 
     public Subject<Unit> OnGameOver = new();
 
+    public ReactiveProperty<int> Hp = new(MaxHP);
+
+    public static int MaxHP = 15;
+
     GameData()
     {
         if (Instance == null)
@@ -20,6 +24,13 @@ public class GameData : MonoBehaviour
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
+    }
+
+    void Start()
+    {
+        Hp
+            .Where((hp) => hp <= 0)
+            .Subscribe((_) => OnGameOver.OnNext(Unit.Default));
     }
 
     public void AddScore(int value)
