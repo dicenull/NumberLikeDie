@@ -42,6 +42,7 @@ public class GameData : MonoBehaviour
     public void Reset()
     {
         Score.Value = 0;
+        Hp.Value = MaxHP;
     }
 
 }
